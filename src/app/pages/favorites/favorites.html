@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Mis Favoritos</h2>
+
+    @if (favorites().length === 0) {
+    <div class="alert alert-info">
+        Aun no tienes favoritos. Ve a <a routerLink="/search">Buscar</a> para encontrar canciones.
+    </div>
+    } @else {
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @for (song of favorites(); track song.id) {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-truncate" [title]="song.trackName">{{ song.trackName }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted text-truncate" [title]="song.artistName">{{ song.artistName
+                        }}</h6>
+                    <p class="card-text small">
+                        <strong>Album:</strong> {{ song.albumName }}<br>
+                        <strong>Duracion:</strong> {{ song.duration }}s
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between align-items-center">
+                    <a [routerLink]="['/details', song.id]"
+                        class="btn btn-outline-primary btn-sm stretched-link">Detalles</a>
+                    <button class="btn btn-danger btn-sm" style="z-index: 2; position: relative;"
+                        (click)="remove(song.id, $event)">
+                        <i class="bi bi-trash"></i> Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    }
+</div>

@@ -1,0 +1,58 @@
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="h4 mb-0">Contactanos</h2>
+                </div>
+                <div class="card-body">
+                    @if (submitted) {
+                    <div class="alert alert-success" role="alert">
+                        Mensaje enviado con exito!
+                    </div>
+                    }
+
+                    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="name" formControlName="name"
+                                [class.is-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+                            @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
+                            <div class="invalid-feedback">
+                                El nombre es obligatorio.
+                            </div>
+                            }
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo electronico</label>
+                            <input type="email" class="form-control" id="email" formControlName="email"
+                                [class.is-invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+                            @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+                            <div class="invalid-feedback">
+                                Introduce un correo valido.
+                            </div>
+                            }
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Mensaje</label>
+                            <textarea class="form-control text-start" id="message" rows="5" formControlName="message"
+                                [class.is-invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"></textarea>
+                            @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+                            <div class="invalid-feedback">
+                                El mensaje es obligatorio (min. 10 caracteres).
+                            </div>
+                            }
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg" [disabled]="contactForm.invalid">Enviar
+                                Mensaje</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

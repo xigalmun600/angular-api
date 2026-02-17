@@ -1,0 +1,85 @@
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                Buscar Letras y Metadatos
+            </div>
+            <div class="card-body">
+                <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-lg" id="q" formControlName="q"
+                            placeholder="Buscar cancion, artista o album...">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="bi bi-search"></i> Buscar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (loading) {
+<div class="d-flex justify-content-center my-5">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Cargando...</span>
+    </div>
+</div>
+}
+
+@if (error) {
+<div class="alert alert-danger" role="alert">
+    {{ error }}
+</div>
+}
+
+@if (searched && !loading && !error && songs.length === 0) {
+<div class="alert alert-info" role="alert">
+    No se encontraron resultados.
+</div>
+}
+
+@if (songs.length > 0) {
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @for (song of songs; track song.id) {
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-truncate" [title]="song.trackName">{{ song.trackName }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted text-truncate" [title]="song.artistName">{{ song.artistName }}
+                </h6>
+                <p class="card-text small">
+                    <strong>Album:</strong> {{ song.albumName }}<br>
+                    <strong>Duracion:</strong> {{ song.duration }}s<br>
+                    @if (song.instrumental) {
+                    <span class="badge bg-warning text-dark">Instrumental</span>
+                    }
+                </p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between align-items-center">
+                <button class="btn btn-outline-primary btn-sm" (click)="toggleLyrics(song, $event)"
+                    style="z-index: 2; position: relative;">
+                    {{ song.showLyrics ? 'Ocultar Letra' : 'Ver Letra' }}
+                </button>
+                <div class="d-flex gap-2" style="z-index: 2; position: relative;">
+                    <a [routerLink]="['/details', song.id]" class="btn btn-sm btn-outline-info">
+                        <i class="bi bi-info-circle"></i>
+                    </a>
+                    <button class="btn btn-sm" [class.btn-warning]="isFavorite(song.id)"
+                        [class.btn-outline-secondary]="!isFavorite(song.id)" (click)="toggleFavorite(song, $event)">
+                        <i class="bi" [class.bi-star-fill]="isFavorite(song.id)"
+                            [class.bi-star]="!isFavorite(song.id)"></i>
+                    </button>
+                </div>
+            </div>
+            @if (song.showLyrics) {
+            <div class="card-footer bg-light">
+                <pre class="small text-muted mb-0"
+                    style="white-space: pre-wrap; max-height: 200px; overflow-y: auto;">{{ song.plainLyrics || 'No hay letra disponible.' }}</pre>
+            </div>
+            }
+        </div>
+    </div>
+    }
+</div>
+}
