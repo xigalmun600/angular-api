@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+  Archivo de estilos globales de la aplicación Angular
+  Este archivo contiene estilos CSS que se aplican a toda la aplicación
+  Se puede usar para definir variables CSS, estilos globales, o importar otros archivos de estilos
+*/
+
+/*
+  Comentario informativo para desarrolladores
+  Este archivo es el lugar ideal para:
+  1. Definir variables CSS globales (colores, fuentes, espaciados)
+  2. Estilos base para elementos HTML (body, h1-h6, p, etc.)
+  3. Importar librerías de estilos externas (Bootstrap, FontAwesome, etc.)
+  4. Definir estilos para componentes que se usan en múltiples lugares
+*/
+
+/*
+  Ejemplo de variables CSS globales (descomentar para usar):
+  :root {
+    --color-primary: #007bff;
+    --color-secondary: #6c757d;
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+    --color-light: #f8f9fa;
+    --color-dark: #343a40;
+    --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --border-radius: 4px;
+    --spacing-unit: 8px;
+  }
+*/
+
+/*
+  Estilos base para el body (descomentar para usar):
+  body {
+    font-family: var(--font-family-base);
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    line-height: 1.6;
+  }
+*/
+
+/*
+  Importar otros archivos de estilos (descomentar para usar):
+  @import './assets/css/bootstrap.min.css';
+  @import './assets/css/font-awesome.min.css';
+*/
+
+/*
+  Nota: Este archivo está vacío actualmente
+  Los estilos específicos de cada componente se encuentran en los archivos .css
+  correspondientes a cada componente (app.css, navbar.css, etc.)
+*/

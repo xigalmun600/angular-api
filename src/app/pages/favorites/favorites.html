@@ -1,35 +1,76 @@
-<div class="container mt-4">
-    <h2 class="mb-4">Mis Favoritos</h2>
+<!--
+  Plantilla HTML del componente de la página de favoritos (Favorites)
+  Este archivo define la estructura visual del componente de favoritos
+  Muestra la lista de canciones favoritas del usuario
+-->
 
-    @if (favorites().length === 0) {
-    <div class="alert alert-info">
-        Aun no tienes favoritos. Ve a <a routerLink="/search">Buscar</a> para encontrar canciones.
-    </div>
-    } @else {
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        @for (song of favorites(); track song.id) {
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title text-truncate" [title]="song.trackName">{{ song.trackName }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted text-truncate" [title]="song.artistName">{{ song.artistName
-                        }}</h6>
-                    <p class="card-text small">
-                        <strong>Album:</strong> {{ song.albumName }}<br>
-                        <strong>Duracion:</strong> {{ song.duration }}s
-                    </p>
-                </div>
-                <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between align-items-center">
-                    <a [routerLink]="['/details', song.id]"
-                        class="btn btn-outline-primary btn-sm stretched-link">Detalles</a>
-                    <button class="btn btn-danger btn-sm" style="z-index: 2; position: relative;"
-                        (click)="remove(song.id, $event)">
-                        <i class="bi bi-trash"></i> Eliminar
-                    </button>
-                </div>
+<!--
+  Contenedor principal
+  Clases de Bootstrap:
+  - container: contenedor centrado con ancho máximo
+  - mt-4: margen superior de 1.5rem
+-->
+<div class="container mt-4">
+    <!-- Título de la página -->
+    <h3>Favoritos</h3>
+    
+    <!--
+      Mensaje de "no hay favoritos"
+      @if(!favorites().length): se muestra solo si la lista de favoritos está vacía
+      Clases de Bootstrap:
+      - alert alert-info: alerta informativa (azul)
+    -->
+    @if(!favorites().length){<div class="alert alert-info">Sin favoritos.</div>}
+    
+    <!--
+      Lista de favoritos
+      Clases de Bootstrap:
+      - list-group: lista de elementos
+    -->
+    <div class="list-group">
+        <!--
+          Bucle for de Angular para iterar sobre las favoritos
+          @for: directiva de Angular para bucles
+          track s.id: identificador único para el seguimiento de elementos
+        -->
+        @for(s of favorites(); track s.id){
+        <!--
+          Item de la lista
+          Clases de Bootstrap:
+          - list-group-item: elemento de la lista
+          - d-flex: display flex
+          - justify-content-between: distribuye el espacio entre elementos
+          - align-items-center: alinea verticalmente al centro
+        -->
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+            <!--
+              Información de la canción
+              strong: texto en negrita
+            -->
+            <div><strong>{{s.trackName}}</strong> - {{s.artistName}}</div>
+            
+            <!--
+              Contenedor de botones de acción
+            -->
+            <div>
+                <!--
+                  Enlace a la página de detalles
+                  [routerLink]: enlace dinámico a la página de detalles
+                  btn-sm: botón pequeño
+                  btn-outline-info: botón con borde azul
+                  me-2: margen a la derecha de 0.5rem
+                -->
+                <a [routerLink]="['/details', s.id]" class="btn btn-sm btn-outline-info me-2">Info</a>
+                
+                <!--
+                  Botón para eliminar de favoritos
+                  btn-sm: botón pequeño
+                  btn-danger: botón con color rojo
+                  (click): ejecuta remove(s.id, $event) al hacer clic
+                  $event: pasa el evento de clic para detener la propagación
+                -->
+                <button class="btn btn-sm btn-danger" (click)="remove(s.id, $event)">X</button>
             </div>
-        </div>
-        }
+        </div>}
     </div>
-    }
 </div>

@@ -1,58 +1,65 @@
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow">
-                <div class="card-header bg-primary text-white">
-                    <h2 class="h4 mb-0">Contactanos</h2>
-                </div>
-                <div class="card-body">
-                    @if (submitted) {
-                    <div class="alert alert-success" role="alert">
-                        Mensaje enviado con exito!
-                    </div>
-                    }
+<!--
+  Plantilla HTML del componente de la página de contacto (Contact)
+  Este archivo define la estructura visual del componente de contacto
+  Contiene un formulario para enviar mensajes
+-->
 
-                    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="name" formControlName="name"
-                                [class.is-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
-                            @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
-                            <div class="invalid-feedback">
-                                El nombre es obligatorio.
-                            </div>
-                            }
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Correo electronico</label>
-                            <input type="email" class="form-control" id="email" formControlName="email"
-                                [class.is-invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
-                            @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
-                            <div class="invalid-feedback">
-                                Introduce un correo valido.
-                            </div>
-                            }
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Mensaje</label>
-                            <textarea class="form-control text-start" id="message" rows="5" formControlName="message"
-                                [class.is-invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"></textarea>
-                            @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
-                            <div class="invalid-feedback">
-                                El mensaje es obligatorio (min. 10 caracteres).
-                            </div>
-                            }
-                        </div>
-
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary btn-lg" [disabled]="contactForm.invalid">Enviar
-                                Mensaje</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<!--
+  Contenedor principal
+  Clases de Bootstrap:
+  - container: contenedor centrado con ancho máximo
+  - mt-4: margen superior de 1.5rem
+  - col-md-6: ocupa 6 de 12 columnas en pantallas medianas
+-->
+<div class="container mt-4 col-md-6">
+    <!-- Título de la página -->
+    <h3>Contacto</h3>
+    
+    <!--
+      Mensaje de confirmación
+      @if(submitted): se muestra solo cuando el formulario ha sido enviado
+      Clases de Bootstrap:
+      - alert alert-success: alerta de éxito (verde)
+    -->
+    @if(submitted){<div class="alert alert-success">Enviado!</div>}
+    
+    <!--
+      Formulario de contacto reactivo
+      [formGroup]: enlaza el formulario con la variable contactForm
+      (ngSubmit): ejecuta onSubmit() al enviar el formulario
+    -->
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <!--
+          Campo de nombre
+          mb-2: margen inferior de 0.5rem
+          label: etiqueta del campo
+          form-control: estilo de Bootstrap para inputs
+          formControlName="name": enlaza con el campo 'name' del formulario
+        -->
+        <div class="mb-2"><label>Nombre</label><input class="form-control" formControlName="name"></div>
+        
+        <!--
+          Campo de email
+          type="email": tipo de input para email
+          formControlName="email": enlaza con el campo 'email' del formulario
+        -->
+        <div class="mb-2"><label>Email</label><input type="email" class="form-control" formControlName="email"></div>
+        
+        <!--
+          Campo de mensaje
+          textarea: área de texto multilinea
+          formControlName="message": enlaza con el campo 'message' del formulario
+        -->
+        <div class="mb-2"><label>Mensaje</label><textarea class="form-control" formControlName="message"></textarea>
         </div>
-    </div>
+        
+        <!--
+          Botón de envío
+          btn: estilo de botón de Bootstrap
+          btn-primary: botón con color primario
+          w-100: ancho completo (100%)
+          [disabled]: deshabilita el botón si el formulario es inválido
+        -->
+        <button class="btn btn-primary w-100" [disabled]="contactForm.invalid">Enviar</button>
+    </form>
 </div>

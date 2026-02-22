@@ -1,0 +1,74 @@
+/*
+  Archivo de estilos CSS del componente de la página de inicio (Home)
+  Este archivo contiene los estilos específicos para el componente Home
+  Actualmente está vacío, pero se puede usar para personalizar la página de inicio
+*/
+
+/*
+  Nota: Este archivo está vacío actualmente
+  Los estilos del componente Home se proporcionan principalmente a través de Bootstrap 5
+  Las clases de Bootstrap utilizadas en home.html son:
+  - p-4: padding de 1.5rem
+  - mb-4: margen inferior de 1.5rem
+  - bg-light: fondo claro
+  - rounded: bordes redondeados
+  - text-center: texto centrado
+  - btn: botón
+  - btn-primary: botón con color primario
+  - carousel: componente de carrusel
+  - carousel-item: item del carrusel
+  - active: item visible por defecto
+  - bg-secondary: fondo secundario
+  - bg-dark: fondo oscuro
+  - bg-primary: fondo primario
+  - p-5: padding de 3rem
+  - text-white: texto blanco
+  - carousel-control-prev: control anterior
+  - carousel-control-next: control siguiente
+*/
+
+/*
+  Si se desea personalizar la página de inicio, se pueden añadir estilos aquí
+  Por ejemplo:
+  
+  .p-4 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+  
+  .p-4 h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .p-4 p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .p-4 .btn {
+    font-size: 1.1rem;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .p-4 .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .carousel-item h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 30px;
+    height: 30px;
+  }
+*/

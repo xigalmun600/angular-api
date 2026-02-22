@@ -1,85 +1,128 @@
+<!--
+  Plantilla HTML del componente de la página de detalles (Details)
+  Este archivo define la estructura visual del componente de detalles
+  Muestra información detallada de una canción
+-->
+
+<!--
+  Contenedor principal
+  Clases de Bootstrap:
+  - container: contenedor centrado con ancho máximo
+  - mt-4: margen superior de 1.5rem
+-->
 <div class="container mt-4">
-    <div class="mb-3">
-        <a routerLink="/search" class="btn btn-outline-secondary">
-            <i class="bi bi-arrow-left"></i> Volver
-        </a>
-    </div>
-
-    @if (loading) {
-    <div class="d-flex justify-content-center">
-        <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Cargando...</span>
+    <!--
+      Enlace para volver a la página de búsqueda
+      mb-2: margen inferior de 0.5rem
+      routerLink="/search": enlace a la página de búsqueda
+      btn-sm: botón pequeño
+      btn-outline-secondary: botón con borde gris
+    -->
+    <div class="mb-2"><a routerLink="/search" class="btn btn-sm btn-outline-secondary">← Volver</a></div>
+    
+    <!--
+      Indicador de carga
+      @if(loading): se muestra solo cuando loading es true
+      Clases de Bootstrap:
+      - spinner-border: animación de carga circular
+      - text-primary: color primario
+    -->
+    @if(loading){<div class="spinner-border text-primary"></div>}
+    
+    <!--
+      Mensaje de error
+      @if(error): se muestra solo cuando hay un error
+      Clases de Bootstrap:
+      - alert alert-danger: alerta de error
+    -->
+    @if(error){<div class="alert alert-danger">{{error}}</div>}
+    
+    <!--
+      Tarjeta con información de la canción
+      @if(song): se muestra solo si hay una canción cargada
+      Clases de Bootstrap:
+      - card: contenedor de tarjeta
+    -->
+    @if(song){
+    <div class="card">
+        <!--
+          Encabezado de la tarjeta
+          Clases de Bootstrap:
+          - card-header: encabezado de tarjeta
+          - d-flex: display flex
+          - justify-content-between: distribuye el espacio entre elementos
+        -->
+        <div class="card-header d-flex justify-content-between">
+            <!--
+              Título de la canción
+              h5: tamaño de encabezado 5
+              m-0: margen 0
+            -->
+            <h3 class="h5 m-0">{{song.trackName}}</h3>
+            
+            <!--
+              Botón para añadir/eliminar de favoritos
+              btn-sm: botón pequeño
+              (click): ejecuta toggleFavorite() al hacer clic
+              Muestra '★ Quitar' si está en favoritos, '☆ Añadir' si no
+            -->
+            <button class="btn btn-sm" (click)="toggleFavorite()">{{isFavorite()?'★ Quitar':'☆ Añadir'}}</button>
         </div>
-    </div>
-    }
-
-    @if (error) {
-    <div class="alert alert-danger" role="alert">
-        {{ error }}
-    </div>
-    }
-
-    @if (song) {
-    <div class="card shadow">
-        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-            <h2 class="h4 mb-0">{{ song.trackName }}</h2>
-            <button class="btn btn-outline-light btn-sm" (click)="toggleFavorite()">
-                <i class="bi" [class.bi-star-fill]="isFavorite()" [class.bi-star]="!isFavorite()"></i>
-                {{ isFavorite() ? 'Quitar de Favoritos' : 'Anadir a Favoritos' }}
-            </button>
-        </div>
+        
+        <!--
+          Cuerpo de la tarjeta
+          Clases de Bootstrap:
+          - card-body: cuerpo de tarjeta
+        -->
         <div class="card-body">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <h5 class="card-title">Informacion</h5>
-                            <p class="card-text"><strong>Artista:</strong> {{ song.artistName }}</p>
-                            <p class="card-text"><strong>Album:</strong> {{ song.albumName }}</p>
-                            <p class="card-text"><strong>Duracion:</strong> {{ song.duration }} seg</p>
-                            <p class="card-text">
-                                <strong>Instrumental:</strong>
-                                @if (song.instrumental) {
-                                <span class="badge bg-success ms-1">Si</span>
-                                } @else {
-                                <span class="badge bg-secondary ms-1">No</span>
-                                }
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-8">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="plain-tab" data-bs-toggle="tab" data-bs-target="#plain"
-                                type="button" role="tab" aria-controls="plain" aria-selected="true">Letra</button>
-                        </li>
-                        @if (song.syncedLyrics) {
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="synced-tab" data-bs-toggle="tab" data-bs-target="#synced"
-                                type="button" role="tab" aria-controls="synced"
-                                aria-selected="false">Sincronizada</button>
-                        </li>
-                        }
-                    </ul>
-
-                    <div class="tab-content border border-top-0 p-3 bg-white" id="myTabContent">
-                        <div class="tab-pane fade show active" id="plain" role="tabpanel" aria-labelledby="plain-tab">
-                            <pre class="lyrics-text"
-                                style="white-space: pre-wrap; font-family: inherit;">{{ song.plainLyrics || 'No hay letra disponible.' }}</pre>
-                        </div>
-
-                        @if (song.syncedLyrics) {
-                        <div class="tab-pane fade" id="synced" role="tabpanel" aria-labelledby="synced-tab">
-                            <pre class="lyrics-text"
-                                style="white-space: pre-wrap; font-family: monospace;">{{ song.syncedLyrics }}</pre>
-                        </div>
-                        }
-                    </div>
-                </div>
-            </div>
+            <!--
+              Información de la canción
+              strong: texto en negrita
+            -->
+            <p><strong>Artista:</strong> {{song.artistName}} <strong>Album:</strong> {{song.albumName}}
+                <strong>Dur:</strong> {{song.duration}}s {{song.instrumental?'(Instr)':''}}</p>
+            
+            <!--
+              Separador horizontal
+              hr: línea horizontal
+            -->
+            <hr>
+            
+            <!--
+              Sección de letra
+              h6: tamaño de encabezado 6
+            -->
+            <h6>Letra</h6>
+            
+            <!--
+              Preformateado para mostrar la letra
+              style="white-space:pre-wrap": preserva espacios y saltos de línea
+              Si no hay letra, muestra 'Sin letra.'
+            -->
+            <pre style="white-space:pre-wrap">{{song.plainLyrics || 'Sin letra.'}}</pre>
+            
+            <!--
+              Sección de letra sincronizada (si existe)
+              @if(song.syncedLyrics): se muestra solo si hay letra sincronizada
+            -->
+            @if(song.syncedLyrics){
+            <!--
+              Separador horizontal
+              hr: línea horizontal
+            -->
+            <hr>
+            
+            <!--
+              Título de la sección
+              h6: tamaño de encabezado 6
+            -->
+            <h6>Sincronizada</h6>
+            
+            <!--
+              Preformateado para mostrar la letra sincronizada
+              style="white-space:pre-wrap": preserva espacios y saltos de línea
+            -->
+            <pre style="white-space:pre-wrap">{{song.syncedLyrics}}</pre>}
         </div>
-    </div>
-    }
+    </div>}
 </div>

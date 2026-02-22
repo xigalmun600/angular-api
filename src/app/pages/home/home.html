@@ -1,64 +1,94 @@
-<div class="jumbotron p-5 mb-4 bg-light rounded-3">
-    <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Bienvenido</h1>
-        <p class="col-md-8 fs-4">Busca letras, artistas y albumes usando la API de LRCLIB.</p>
-        <button class="btn btn-primary btn-lg" type="button" routerLink="/search">Buscar</button>
-    </div>
+<!--
+  Plantilla HTML del componente de la página de inicio (Home)
+  Este archivo define la estructura visual de la página principal
+  Contiene un mensaje de bienvenida y un carrusel de información
+-->
+
+<!--
+  Sección de bienvenida
+  Clases de Bootstrap:
+  - p-4: padding de 1.5rem
+  - mb-4: margen inferior de 1.5rem
+  - bg-light: fondo claro
+  - rounded: bordes redondeados
+  - text-center: texto centrado
+-->
+<div class="p-4 mb-4 bg-light rounded text-center">
+    <!-- Título de bienvenida -->
+    <h1>Bienvenido</h1>
+    
+    <!-- Descripción de la aplicación -->
+    <p>Busca letras y mas.</p>
+    
+    <!--
+      Botón para ir a la página de búsqueda
+      btn: estilo de botón de Bootstrap
+      btn-primary: botón con color primario
+      routerLink="/search": enlace a la página de búsqueda
+    -->
+    <button class="btn btn-primary" routerLink="/search">Buscar</button>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center text-white"
-                        style="height: 400px;">
-                        <h2>Busqueda</h2>
-                    </div>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Busqueda Potente</h5>
-                        <p>Filtra por cancion, artista o album.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="d-block w-100 bg-dark d-flex justify-content-center align-items-center text-white"
-                        style="height: 400px;">
-                        <h2>Letras Sincronizadas</h2>
-                    </div>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Sincronización</h5>
-                        <p>Ver letras sincronizadas con la música.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="d-block w-100 bg-primary d-flex justify-content-center align-items-center text-white"
-                        style="height: 400px;">
-                        <h2>Favoritos</h2>
-                    </div>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Guardar Favoritos</h5>
-                        <p>Tu lista de canciones preferidas.</p>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Siguiente</span>
-            </button>
+<!--
+  Carrusel de información
+  id="c": identificador para referenciarlo en los controles
+  carousel: componente de Bootstrap para carrusel
+  slide: animación de deslizamiento
+  data-bs-ride="carousel": inicia el carrusel automáticamente
+-->
+<div id="c" class="carousel slide" data-bs-ride="carousel">
+    <!--
+      Contenido del carrusel
+      carousel-inner: contenedor de los items del carrusel
+      text-white: texto blanco
+      text-center: texto centrado
+    -->
+    <div class="carousel-inner text-white text-center">
+        <!--
+          Item 1 del carrusel (activo por defecto)
+          carousel-item: item del carrusel
+          active: item visible por defecto
+          bg-secondary: fondo secundario
+          p-5: padding de 3rem
+        -->
+        <div class="carousel-item active bg-secondary p-5">
+            <h2>Busqueda</h2>
+        </div>
+        
+        <!--
+          Item 2 del carrusel
+          bg-dark: fondo oscuro
+          p-5: padding de 3rem
+        -->
+        <div class="carousel-item bg-dark p-5">
+            <h2>Letras</h2>
+        </div>
+        
+        <!--
+          Item 3 del carrusel
+          bg-primary: fondo primario
+          p-5: padding de 3rem
+        -->
+        <div class="carousel-item bg-primary p-5">
+            <h2>Favoritos</h2>
         </div>
     </div>
+    
+    <!--
+      Control anterior del carrusel
+      carousel-control-prev: botón para ir al item anterior
+      data-bs-target="#c": referencia al carrusel
+      data-bs-slide="prev": desliza al item anterior
+    -->
+    <button class="carousel-control-prev" data-bs-target="#c" data-bs-slide="prev"><span
+            class="carousel-control-prev-icon"></span></button>
+    
+    <!--
+      Control siguiente del carrusel
+      carousel-control-next: botón para ir al item siguiente
+      data-bs-target="#c": referencia al carrusel
+      data-bs-slide="next": desliza al item siguiente
+    -->
+    <button class="carousel-control-next" data-bs-target="#c" data-bs-slide="next"><span
+            class="carousel-control-next-icon"></span></button>
 </div>

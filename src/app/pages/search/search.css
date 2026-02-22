@@ -1,0 +1,69 @@
+/*
+  Archivo de estilos CSS del componente de la página de búsqueda (Search)
+  Este archivo contiene los estilos específicos para el componente Search
+  Actualmente está vacío, pero se puede usar para personalizar la página de búsqueda
+*/
+
+/*
+  Nota: Este archivo está vacío actualmente
+  Los estilos del componente Search se proporcionan principalmente a través de Bootstrap 5
+  Las clases de Bootstrap utilizadas en search.html son:
+  - row: fila de sistema de grid
+  - col: columna de sistema de grid
+  - mb-3: margen inferior de 1rem
+  - d-flex: display flex
+  - gap-2: gap de 0.5rem
+  - form-control: campo de entrada
+  - btn: botón
+  - btn-primary: botón con color primario
+  - spinner-border: animación de carga circular
+  - text-primary: color primario
+  - text-center: texto centrado
+  - p-5: padding de 3rem
+  - alert: contenedor de alerta
+  - alert-danger: alerta de error (rojo)
+  - alert-info: alerta informativa (azul)
+  - list-group: lista de elementos
+  - list-group-item: elemento de la lista
+  - justify-content-between: distribuye el espacio entre elementos
+  - align-items-center: alinea verticalmente al centro
+  - mb-1: margen inferior de 0.25rem
+  - small: texto pequeño
+  - btn-group: contenedor de botones
+  - btn-group-sm: botones pequeños
+  - btn-outline-secondary: botón con borde gris
+  - btn-outline-info: botón con borde azul
+  - btn-warning: botón amarillo
+  - mt-2: margen superior de 0.5rem
+  - text-muted: texto gris
+*/
+
+/*
+  Si se desea personalizar la página de búsqueda, se pueden añadir estilos aquí
+  Por ejemplo:
+  
+  .list-group-item {
+    transition: background-color 0.2s ease;
+  }
+  
+  .list-group-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .btn-group .btn {
+    min-width: 60px;
+  }
+  
+  pre {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+  }
+  
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+  }
+*/

@@ -1,0 +1,34 @@
+/*
+  Archivo de estilos CSS del componente principal de la aplicación
+  Este archivo contiene los estilos específicos para el componente App
+  Actualmente está vacío, pero se puede usar para definir estilos globales
+*/
+
+/*
+  Nota: Este archivo está vacío actualmente
+  Los estilos específicos del componente principal se pueden añadir aquí
+  Por ejemplo:
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 0.5rem;
+    }
+  }
+*/
+
+/*
+  Los estilos de la aplicación se distribuyen en los siguientes archivos:
+  - styles.css: estilos globales de la aplicación
+  - app/components/navbar/navbar.css: estilos del componente de navegación
+  - app/pages/home/home.css: estilos de la página de inicio
+  - app/pages/search/search.css: estilos de la página de búsqueda
+  - app/pages/details/details.css: estilos de la página de detalles
+  - app/pages/contact/contact.css: estilos de la página de contacto
+  - app/pages/favorites/favorites.css: estilos de la página de favoritos
+*/

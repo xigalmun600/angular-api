@@ -1,85 +1,173 @@
-<div class="row mb-4">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header bg-primary text-white">
-                Buscar Letras y Metadatos
-            </div>
-            <div class="card-body">
-                <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-                    <div class="input-group">
-                        <input type="text" class="form-control form-control-lg" id="q" formControlName="q"
-                            placeholder="Buscar cancion, artista o album...">
-                        <button type="submit" class="btn btn-primary btn-lg">
-                            <i class="bi bi-search"></i> Buscar
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+<!--
+  Plantilla HTML del componente de la página de búsqueda (Search)
+  Este archivo define la estructura visual del componente de búsqueda
+  Contiene el formulario de búsqueda y los resultados
+-->
 
-@if (loading) {
-<div class="d-flex justify-content-center my-5">
-    <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Cargando...</span>
-    </div>
-</div>
-}
-
-@if (error) {
-<div class="alert alert-danger" role="alert">
-    {{ error }}
-</div>
-}
-
-@if (searched && !loading && !error && songs.length === 0) {
-<div class="alert alert-info" role="alert">
-    No se encontraron resultados.
-</div>
-}
-
-@if (songs.length > 0) {
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    @for (song of songs; track song.id) {
+<!--
+  Fila con el formulario de búsqueda
+  Clases de Bootstrap:
+  - row: fila de sistema de grid
+  - mb-3: margen inferior de 1rem
+-->
+<div class="row mb-3">
+    <!-- Columna que contiene el formulario -->
     <div class="col">
-        <div class="card h-100 shadow-sm">
-            <div class="card-body">
-                <h5 class="card-title text-truncate" [title]="song.trackName">{{ song.trackName }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted text-truncate" [title]="song.artistName">{{ song.artistName }}
-                </h6>
-                <p class="card-text small">
-                    <strong>Album:</strong> {{ song.albumName }}<br>
-                    <strong>Duracion:</strong> {{ song.duration }}s<br>
-                    @if (song.instrumental) {
-                    <span class="badge bg-warning text-dark">Instrumental</span>
-                    }
-                </p>
-            </div>
-            <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between align-items-center">
-                <button class="btn btn-outline-primary btn-sm" (click)="toggleLyrics(song, $event)"
-                    style="z-index: 2; position: relative;">
-                    {{ song.showLyrics ? 'Ocultar Letra' : 'Ver Letra' }}
-                </button>
-                <div class="d-flex gap-2" style="z-index: 2; position: relative;">
-                    <a [routerLink]="['/details', song.id]" class="btn btn-sm btn-outline-info">
-                        <i class="bi bi-info-circle"></i>
-                    </a>
-                    <button class="btn btn-sm" [class.btn-warning]="isFavorite(song.id)"
-                        [class.btn-outline-secondary]="!isFavorite(song.id)" (click)="toggleFavorite(song, $event)">
-                        <i class="bi" [class.bi-star-fill]="isFavorite(song.id)"
-                            [class.bi-star]="!isFavorite(song.id)"></i>
-                    </button>
-                </div>
-            </div>
-            @if (song.showLyrics) {
-            <div class="card-footer bg-light">
-                <pre class="small text-muted mb-0"
-                    style="white-space: pre-wrap; max-height: 200px; overflow-y: auto;">{{ song.plainLyrics || 'No hay letra disponible.' }}</pre>
-            </div>
-            }
-        </div>
+        <!--
+          Formulario de búsqueda reactivo
+          [formGroup]: enlaza el formulario con la variable searchForm
+          (ngSubmit): ejecuta onSubmit() al enviar el formulario
+          class="d-flex gap-2": display flex con gap de 0.5rem
+        -->
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="d-flex gap-2">
+            <!--
+              Campo de entrada de texto para el término de búsqueda
+              class="form-control": estilo de Bootstrap para inputs
+              formControlName="q": enlaza con el campo 'q' del formulario
+              placeholder: texto de ayuda cuando el campo está vacío
+            -->
+            <input class="form-control" formControlName="q" placeholder="Buscar...">
+            
+            <!--
+              Botón de envío del formulario
+              type="submit": envía el formulario
+              class="btn btn-primary": botón con color primario de Bootstrap
+            -->
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
     </div>
-    }
 </div>
-}
+
+<!--
+  Indicador de carga
+  @if(loading): se muestra solo cuando loading es true
+  Clases de Bootstrap:
+  - text-center: texto centrado
+  - p-5: padding de 3rem
+-->
+@if(loading){
+<div class="text-center p-5">
+    <!--
+      Spinner de Bootstrap para indicar carga
+      spinner-border: animación de carga circular
+      text-primary: color primario
+    -->
+    <div class="spinner-border text-primary"></div>
+</div>}
+
+<!--
+  Mensaje de error
+  @if(error): se muestra solo cuando hay un error
+  Clases de Bootstrap:
+  - alert alert-danger: alerta de error
+-->
+@if(error){
+<div class="alert alert-danger">{{error}}</div>}
+
+<!--
+  Mensaje de "no se encontraron resultados"
+  @if(searched && !loading && !error && !songs.length): se muestra cuando:
+  - Se ha realizado una búsqueda (searched)
+  - No está cargando (!loading)
+  - No hay error (!error)
+  - No hay resultados (!songs.length)
+  Clases de Bootstrap:
+  - alert alert-info: alerta informativa
+-->
+@if(searched && !loading && !error && !songs.length){
+<div class="alert alert-info">No se encontraron resultados.</div>}
+
+<!--
+  Lista de resultados
+  @if(songs.length): se muestra solo si hay canciones
+-->
+@if(songs.length){
+<!--
+  Lista de grupos de Bootstrap
+  list-group: contenedor de lista
+-->
+<div class="list-group">
+    <!--
+      Bucle for de Angular para iterar sobre las canciones
+      @for: directiva de Angular para bucles
+      track s.id: identificador único para el seguimiento de elementos
+    -->
+    @for(s of songs; track s.id){
+    <!--
+      Item de la lista
+      list-group-item: elemento de la lista
+    -->
+    <div class="list-group-item">
+        <!--
+          Contenedor flexible para alinear contenido
+          d-flex: display flex
+          justify-content-between: distribuye el espacio entre los elementos
+          align-items-center: alinea verticalmente al centro
+        -->
+        <div class="d-flex justify-content-between align-items-center">
+            <!--
+              Contenedor con información de la canción
+            -->
+            <div>
+                <!--
+                  Título de la canción
+                  mb-1: margen inferior de 0.25rem
+                -->
+                <h5 class="mb-1">{{s.trackName}}</h5>
+                <!--
+                  Artista y álbum
+                  small: texto pequeño
+                -->
+                <small>{{s.artistName}} - {{s.albumName}}</small>
+            </div>
+            
+            <!--
+              Grupo de botones para acciones
+              btn-group: contenedor de botones
+              btn-group-sm: botones pequeños
+            -->
+            <div class="btn-group btn-group-sm">
+                <!--
+                  Botón para mostrar/ocultar letras
+                  btn-outline-secondary: botón con borde gris
+                  (click): ejecuta toggleLyrics(s, $event) al hacer clic
+                  $event: pasa el evento de clic para detener la propagación
+                -->
+                <button class="btn btn-outline-secondary" (click)="toggleLyrics(s, $event)">
+                    {{s.showLyrics ? 'Ocultar' : 'Letra'}}
+                </button>
+                
+                <!--
+                  Enlace a la página de detalles
+                  [routerLink]: enlace dinámico a la página de detalles
+                  btn-outline-info: botón con borde azul
+                -->
+                <a [routerLink]="['/details', s.id]" class="btn btn-outline-info">Info</a>
+                
+                <!--
+                  Botón para añadir/eliminar de favoritos
+                  [class.btn-warning]: clase condicional si es favorito
+                  [class.btn-outline-secondary]: clase condicional si no es favorito
+                  (click): ejecuta toggleFavorite(s, $event) al hacer clic
+                  ★: símbolo de estrella
+                -->
+                <button class="btn" [class.btn-warning]="isFavorite(s.id)"
+                    [class.btn-outline-secondary]="!isFavorite(s.id)" (click)="toggleFavorite(s, $event)">★</button>
+            </div>
+        </div>
+        
+        <!--
+          Contenedor de las letras de la canción
+          @if(s.showLyrics): se muestra solo si showLyrics es true
+        -->
+        @if(s.showLyrics){
+        <!--
+          Preformateado para mostrar las letras
+          mt-2: margen superior de 0.5rem
+          text-muted: texto gris
+          small: texto pequeño
+          style="white-space:pre-wrap": preserva espacios y saltos de línea
+        -->
+        <pre class="mt-2 text-muted small" style="white-space:pre-wrap">{{s.plainLyrics || 'No hay letra.'}}</pre>}
+    </div>}
+</div>}

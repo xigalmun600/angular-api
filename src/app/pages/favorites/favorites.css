@@ -1,0 +1,92 @@
+/*
+  Archivo de estilos CSS del componente de la página de favoritos (Favorites)
+  Este archivo contiene los estilos específicos para el componente Favorites
+  Actualmente está vacío, pero se puede usar para personalizar la página de favoritos
+*/
+
+/*
+  Nota: Este archivo está vacío actualmente
+  Los estilos del componente Favorites se proporcionan principalmente a través de Bootstrap 5
+  Las clases de Bootstrap utilizadas en favorites.html son:
+  - container: contenedor centrado con ancho máximo
+  - mt-4: margen superior de 1.5rem
+  - alert: contenedor de alerta
+  - alert-info: alerta informativa (azul)
+  - list-group: lista de elementos
+  - list-group-item: elemento de la lista
+  - d-flex: display flex
+  - justify-content-between: distribuye el espacio entre elementos
+  - align-items-center: alinea verticalmente al centro
+  - strong: texto en negrita
+  - btn: botón
+  - btn-sm: botón pequeño
+  - btn-outline-info: botón con borde azul
+  - btn-danger: botón con color rojo
+  - me-2: margen a la derecha de 0.5rem
+*/
+
+/*
+  Si se desea personalizar la página de favoritos, se pueden añadir estilos aquí
+  Por ejemplo:
+  
+  .container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    color: #495057;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .list-group-item {
+    transition: background-color 0.2s ease;
+    padding: 1rem 1.5rem;
+  }
+  
+  .list-group-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .list-group-item strong {
+    color: #495057;
+  }
+  
+  .btn-outline-info {
+    color: #17a2b8;
+    border-color: #17a2b8;
+  }
+  
+  .btn-outline-info:hover {
+    background-color: #17a2b8;
+    color: white;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+  }
+  
+  .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 4px;
+  }
+*/

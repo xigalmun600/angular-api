@@ -1,29 +1,113 @@
+<!--
+  Plantilla HTML del componente de navegación (Navbar)
+  Este archivo define la estructura visual del menú de navegación
+  Utiliza Bootstrap 5 para el diseño responsivo
+-->
+
+<!--
+  Barra de navegación principal
+  Clases de Bootstrap:
+  - navbar: componente de barra de navegación
+  - navbar-expand-lg: se expande en pantallas grandes (lg)
+  - navbar-dark: texto claro sobre fondo oscuro
+  - bg-dark: fondo oscuro
+-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Contenedor fluido que se adapta al ancho de la ventana -->
     <div class="container-fluid">
+        <!--
+          Marca/Logo de la aplicación
+          routerLink="/": enlace a la página principal
+          Se muestra en la parte izquierda de la barra de navegación
+        -->
         <a class="navbar-brand" routerLink="/">LRCLIB App</a>
+        
+        <!--
+          Botón de alternancia para dispositivos móviles
+          Se muestra solo en pantallas pequeñas
+          data-bs-toggle="collapse": activa/desactiva el menú
+          data-bs-target="#navbarNav": objetivo del colapso
+          aria-*: atributos de accesibilidad
+        -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        
+        <!--
+          Contenido colapsable del menú de navegación
+          Se oculta en pantallas pequeñas y se muestra al hacer clic en el botón
+        -->
         <div class="collapse navbar-collapse" id="navbarNav">
+            <!--
+              Lista de enlaces de navegación
+              me-auto: margen a la izquierda automático
+              mb-2 mb-lg-0: margen inferior 2 en móvil, 0 en pantallas grandes
+            -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!--
+                  Enlace a la página de inicio
+                  routerLink="/": enlace a la raíz
+                  routerLinkActive="active": aplica clase 'active' cuando la ruta es activa
+                  [routerLinkActiveOptions]="{exact: true}": coincide solo con la ruta exacta
+                -->
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/" routerLinkActive="active"
                         [routerLinkActiveOptions]="{exact: true}">Inicio</a>
                 </li>
+                
+                <!--
+                  Enlace a la página de búsqueda
+                  routerLink="/search": enlace a la página de búsqueda
+                  routerLinkActive="active": aplica clase 'active' cuando la ruta es activa
+                -->
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/search" routerLinkActive="active">Buscar</a>
                 </li>
+                
+                <!--
+                  Enlace a la página de favoritos
+                  routerLink="/favorites": enlace a la página de favoritos
+                  routerLinkActive="active": aplica clase 'active' cuando la ruta es activa
+                -->
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/favorites" routerLinkActive="active">Favoritos</a>
                 </li>
+                
+                <!--
+                  Enlace a la página de contacto
+                  routerLink="/contact": enlace a la página de contacto
+                  routerLinkActive="active": aplica clase 'active' cuando la ruta es activa
+                -->
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contacto</a>
                 </li>
             </ul>
+            
+            <!--
+              Formulario de búsqueda rápida
+              action="/search": envía la búsqueda a la página de búsqueda
+              role="search": indica que es un formulario de búsqueda
+            -->
             <form class="d-flex" role="search" action="/search">
+                <!--
+                  Campo de entrada de texto para la búsqueda
+                  form-control: estilo de Bootstrap para inputs
+                  me-2: margen a la derecha
+                  type="search": tipo de input para búsqueda
+                  placeholder: texto de ayuda
+                  aria-label: etiqueta para accesibilidad
+                  name="q": parámetro de la URL (query string)
+                -->
                 <input class="form-control me-2" type="search" placeholder="Busqueda rapida" aria-label="Search"
                     name="q">
+                
+                <!--
+                  Botón de envío del formulario
+                  btn: estilo de botón de Bootstrap
+                  btn-outline-light: botón con borde claro
+                  type="submit": envía el formulario
+                -->
                 <button class="btn btn-outline-light" type="submit">Buscar</button>
             </form>
         </div>

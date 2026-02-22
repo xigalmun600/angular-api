@@ -1,0 +1,96 @@
+/*
+  Archivo de estilos CSS del componente de la página de detalles (Details)
+  Este archivo contiene los estilos específicos para el componente Details
+  Actualmente está vacío, pero se puede usar para personalizar la página de detalles
+*/
+
+/*
+  Nota: Este archivo está vacío actualmente
+  Los estilos del componente Details se proporcionan principalmente a través de Bootstrap 5
+  Las clases de Bootstrap utilizadas en details.html son:
+  - container: contenedor centrado con ancho máximo
+  - mt-4: margen superior de 1.5rem
+  - mb-2: margen inferior de 0.5rem
+  - btn: botón
+  - btn-sm: botón pequeño
+  - btn-outline-secondary: botón con borde gris
+  - spinner-border: animación de carga circular
+  - text-primary: color primario
+  - alert: contenedor de alerta
+  - alert-danger: alerta de error (rojo)
+  - card: contenedor de tarjeta
+  - card-header: encabezado de tarjeta
+  - card-body: cuerpo de tarjeta
+  - d-flex: display flex
+  - justify-content-between: distribuye el espacio entre elementos
+  - h5: tamaño de encabezado 5
+  - h6: tamaño de encabezado 6
+  - m-0: margen 0
+  - btn-sm: botón pequeño
+*/
+
+/*
+  Si se desea personalizar la página de detalles, se pueden añadir estilos aquí
+  Por ejemplo:
+  
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+  }
+  
+  .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem 1.5rem;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .card-body p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .card-body strong {
+    color: #495057;
+  }
+  
+  .card-body hr {
+    margin: 1.5rem 0;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .card-body h6 {
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-body pre {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 4px;
+  }
+  
+  .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+  }
+*/

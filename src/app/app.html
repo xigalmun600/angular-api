@@ -1,4 +1,32 @@
+<!--
+  Plantilla HTML del componente principal de la aplicación
+  Este archivo define la estructura visual del componente App
+  Contiene el componente de navegación y el área donde se renderizan las rutas
+-->
+
+<!--
+  Componente de navegación
+  <app-navbar> es el selector del componente Navbar
+  Este componente muestra el menú de navegación de la aplicación
+  Se renderiza en la parte superior de la página
+-->
 <app-navbar></app-navbar>
+
+<!--
+  Contenedor principal con margen superior
+  La clase "container" de Bootstrap centra el contenido y le da un ancho máximo
+  La clase "mt-4" añade un margen superior de 1.5rem (24px)
+  Este contenedor envuelve el router-outlet para darle un espaciado adecuado
+-->
 <div class="container mt-4">
+  <!--
+    Componente que muestra las rutas de la aplicación
+    <router-outlet> es un componente especial de Angular Router
+    Aquí se renderizan los componentes de las diferentes páginas según la URL actual
+    Por ejemplo:
+    - Si la URL es "/" se renderiza el componente Home
+    - Si la URL es "/search" se renderiza el componente Search
+    - Si la URL es "/details/123" se renderiza el componente Details con el ID 123
+  -->
   <router-outlet></router-outlet>
 </div>

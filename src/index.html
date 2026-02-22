@@ -1,13 +1,56 @@
+<!--
+  Archivo HTML principal de la aplicación Angular
+  Este archivo es el punto de entrada de la aplicación web
+  Contiene la estructura básica HTML5 y carga el componente principal
+-->
 <!doctype html>
+<!--
+  Declaración del tipo de documento HTML5
+  El atributo lang="en" especifica que el idioma principal es inglés
+-->
 <html lang="en">
 <head>
+  <!--
+    Meta tag para la codificación de caracteres
+    UTF-8 es el estándar universal que soporta casi todos los caracteres
+  -->
   <meta charset="utf-8">
+  
+  <!--
+    Título de la página que se muestra en la pestaña del navegador
+    "AngularApi" es el nombre de la aplicación
+  -->
   <title>AngularApi</title>
+  
+  <!--
+    Base URL para todas las rutas relativas en la aplicación
+    "/" significa que la raíz del sitio es la raíz del dominio
+    Esto es crucial para el enrutamiento de Angular
+  -->
   <base href="/">
+  
+  <!--
+    Meta tag para la configuración del viewport
+    width=device-width: hace que el ancho de la página sea igual al ancho del dispositivo
+    initial-scale=1: establece el nivel de zoom inicial al 100%
+    Esto es esencial para el diseño responsivo en dispositivos móviles
+  -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!--
+    Icono de la aplicación (favicon)
+    Se muestra en la pestaña del navegador y en los marcadores
+    type="image/x-icon": formato de imagen para iconos
+    href="favicon.ico": ruta al archivo del icono
+  -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+  <!--
+    Componente raíz de la aplicación Angular
+    <app-root> es el selector del componente principal definido en app.ts
+    Angular inyectará el contenido de la aplicación en este elemento
+  -->
   <app-root></app-root>
 </body>
 </html>

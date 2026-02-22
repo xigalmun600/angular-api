@@ -1,0 +1,103 @@
+/*
+  Archivo de estilos CSS del componente de la página de contacto (Contact)
+  Este archivo contiene los estilos específicos para el componente Contact
+  Actualmente está vacío, pero se puede usar para personalizar la página de contacto
+*/
+
+/*
+  Nota: Este archivo está vacío actualmente
+  Los estilos del componente Contact se proporcionan principalmente a través de Bootstrap 5
+  Las clases de Bootstrap utilizadas en contact.html son:
+  - container: contenedor centrado con ancho máximo
+  - mt-4: margen superior de 1.5rem
+  - col-md-6: ocupa 6 de 12 columnas en pantallas medianas
+  - alert: contenedor de alerta
+  - alert-success: alerta de éxito (verde)
+  - mb-2: margen inferior de 0.5rem
+  - label: etiqueta del campo
+  - form-control: estilo de Bootstrap para inputs
+  - textarea: área de texto multilinea
+  - btn: botón
+  - btn-primary: botón con color primario
+  - w-100: ancho completo (100%)
+*/
+
+/*
+  Si se desea personalizar la página de contacto, se pueden añadir estilos aquí
+  Por ejemplo:
+  
+  .container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    color: #495057;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .mb-2 {
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #495057;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .btn-primary:disabled {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    cursor: not-allowed;
+  }
+*/

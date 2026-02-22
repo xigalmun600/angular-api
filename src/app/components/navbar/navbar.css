@@ -1,0 +1,59 @@
+/*
+  Archivo de estilos CSS del componente de navegación (Navbar)
+  Este archivo contiene los estilos específicos para el componente Navbar
+  Actualmente está vacío, pero se puede usar para personalizar la barra de navegación
+*/
+
+/*
+  Nota: Este archivo está vacío actualmente
+  Los estilos del componente Navbar se proporcionan principalmente a través de Bootstrap 5
+  Las clases de Bootstrap utilizadas en navbar.html son:
+  - navbar: componente de barra de navegación
+  - navbar-expand-lg: se expande en pantallas grandes (lg)
+  - navbar-dark: texto claro sobre fondo oscuro
+  - bg-dark: fondo oscuro
+  - navbar-brand: marca/logo
+  - navbar-toggler: botón de alternancia para móviles
+  - navbar-nav: lista de navegación
+  - nav-item: elemento de navegación
+  - nav-link: enlace de navegación
+  - active: clase aplicada cuando la ruta está activa
+  - d-flex: display flex
+  - form-control: campo de entrada
+  - btn: botón
+  - btn-outline-light: botón con borde claro
+*/
+
+/*
+  Si se desea personalizar la barra de navegación, se pueden añadir estilos aquí
+  Por ejemplo:
+  
+  .navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .nav-link {
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: #fff !important;
+  }
+  
+  .nav-link.active {
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+  }
+  
+  @media (max-width: 991.98px) {
+    .navbar-collapse {
+      background-color: #343a40;
+      padding: 1rem;
+    }
+  }
+*/
